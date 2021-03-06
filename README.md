@@ -1,6 +1,6 @@
 # Slack Events with Lambda Functions
 
-![](images\architecture.jpg?raw=true "Architecture")
+![Architecture](images\architecture.jpg?raw=true "Architecture")
 
 In certain cases, we need an assistant to help us in our daily work like adding items in an Airtable or making queries in a data table.
 
