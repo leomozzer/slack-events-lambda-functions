@@ -9,6 +9,8 @@ This project consists of doing the connection between a Slack app with an AWS La
 ## Requirements
 * NodeJS
 * Yarn/NPM
+* AWS account
+* AWS CLI
 * [Serverless](https://www.serverless.com/)
 
 ## Setting up
