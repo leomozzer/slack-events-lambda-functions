@@ -6,17 +6,25 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
-  region: us-east-1
+  region: us-east-2
   environment: 
-    SLACK_TOKEN_BOT: 
+    #AWS
+    STANDART_QUEUE_URL: ""
+    APP_REGION: us-east-2
+    #Slack
+    SLACK_BOT_TOKEN: ""
+    SLACK_BOT_ID: ""
+    SLACK_ERROR_CHANNEL: ""
 
 functions:
-  slackEvent:
+  slack:
     handler: src/index.handler
     events:
       - http:
-          path: /slack-event
+          path: slack/{any+}
           method: ANY
+  slack_airtable_sqs:
+    handler: src/LambdaHandlers/sqsSlackHandler.slack_airtable_sqs
 
 plugins: 
   - serverless-offline

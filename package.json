@@ -9,7 +9,9 @@
   "dependencies": {
     "@slack/web-api": "^6.0.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^4.4.1",
     "serverless-http": "^2.7.0"
   },
   "devDependencies": {

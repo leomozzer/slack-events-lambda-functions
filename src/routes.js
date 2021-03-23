@@ -1,8 +1,10 @@
 const express = require('express');
 const routes = express.Router()
 
-const { SlackEvent } = require('./Controllers/SlackController')
+const { SlackEvent, SlackSlashCommands, NewMessage } = require('./Controllers/SlackController')
 
-routes.post('/slack-event', SlackEvent)
+routes.post('/slack/new-message', NewMessage);
+routes.post('/slack/events', SlackEvent);
+routes.post('/slack/slash', SlackSlashCommands);
 
 module.exports = routes
