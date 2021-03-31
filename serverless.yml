@@ -13,7 +13,6 @@ provider:
     APP_REGION: us-east-2
     #Slack
     SLACK_BOT_TOKEN: ""
-    SLACK_BOT_ID: ""
     SLACK_ERROR_CHANNEL: ""
 
 functions:

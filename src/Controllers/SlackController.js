@@ -1,5 +1,6 @@
-const { PostMessage, GetUserInformation } = require("../models/Slack")
-const { AddItemIntoQueue } = require('../models/aws/SQS')
+const { PostMessage, GetUserInformation, ModalView } = require("../models/slack/Slack");
+const { AddItemIntoQueue } = require('../models/aws/SQS');
+const {button, date, select} = require('../models/slack/slack_models');
 module.exports = {
     async SlackEvent(req, res){
         try{
@@ -55,14 +56,49 @@ module.exports = {
     async SlackSlashCommands(req, res){
         const {body} = req;
         console.log(body)
+        const command = body['command'];
         try{
-            return res.json({'message': `Received the command: '${command}' with the following message: ${body['text']}`});
+            switch(command){
+                case '/button':
+                    console.log('button')
+                    res.json(button)
+                    break
+                case '/date':
+                    res.json(date)
+                    break;
+                case '/select':
+                    res.json(select)
+                    break;
+                default:
+                    res.json({'message': `Received the command: '${command}' with the following message: ${body['text']}`});
+                    break;
+            }
+            // return res.json({'message': `Received the command: '${command}' with the following message: ${body['text']}`});
         }
         catch(error){
             await PostMessage(process.env.SLACK_ERROR_CHANNEL, JSON.stringify(error), [])
             return res.json({
                 'response': 'error'
             })
+        }
+    },
+    async ShortCuts(req, res){
+        const {body} = req;
+        console.log(body)
+        try{
+            const payload = JSON.parse(body['payload'])
+            console.log(payload)
+            if(payload['type'] === 'view_submission'){
+                PostMessage(process.env.SLACK_ERROR_CHANNEL, `Received the submission: ${JSON.stringify(payload['view']['state'])}`, []).then(() => {
+                    return res.send('')
+                })
+            }
+            await ModalView(payload);
+            return res.send('')
+        }
+        catch(error){
+            await PostMessage(process.env.SLACK_ERROR_CHANNEL, JSON.stringify(error), [])
+            return 'error'
         }
     }
 }

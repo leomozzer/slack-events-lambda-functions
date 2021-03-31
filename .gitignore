@@ -7,3 +7,4 @@ jspm_packages
 
 #Files
 package-lock.json
+serverless.yml

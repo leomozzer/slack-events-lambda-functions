@@ -4,6 +4,8 @@ const token = process.env.SLACK_BOT_TOKEN;
 
 const web = new WebClient(token);
 
+const {modal} = require('./slack_models')
+
 module.exports = {
     async PostMessage(channel, text, blocks = []){
         try{
@@ -23,6 +25,19 @@ module.exports = {
         catch(error){
             console.log(error);
             return error
+        }
+    },
+    async ModalView(payload){
+        try{
+            await web.views.open({
+                trigger_id: payload['trigger_id'],
+                view: modal
+            })
+            return 'Done'
+        }
+        catch(error){
+            console.log(error)
+            return JSON.stringify(error)
         }
     }
 }
