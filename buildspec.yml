@@ -1,0 +1,36 @@
+version: 0.2 
+ 
+#env: 
+  #variables: 
+     # key: "value" 
+     # key: "value" 
+  #parameter-store: 
+     # key: "value" 
+     # key: "value" 
+ 
+phases: 
+  install:
+    runtime-versions:
+        nodejs: 10     
+    commands: 
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+  pre_build: 
+    commands: 
+    - echo Logging in to Amazon ECR.... 
+    - aws --version
+    # update the following line with your own region
+  build: 
+    commands: 
+    - echo Build started on `date` 
+  post_build: 
+    commands: 
+    - echo Build completed on `date post build` 
+#artifacts: 
+    # - location 
+    # - location 
+  #discard-paths: yes 
+  #base-directory: location 
+#cache: 
+  #paths: 
+    # - paths 
+ 

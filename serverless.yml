@@ -9,11 +9,11 @@ provider:
   region: us-east-2
   environment: 
     #AWS
-    STANDART_QUEUE_URL: ""
+    STANDART_QUEUE_URL: "https://sqs.us-east-2.amazonaws.com/744380458397/aws-standard-queue"
     APP_REGION: us-east-2
     #Slack
-    SLACK_BOT_TOKEN: ""
-    SLACK_ERROR_CHANNEL: ""
+    SLACK_BOT_TOKEN: "xoxb-489188369799-1804917777168-7uymmw2IUPMTe7y2sYP05czQ"
+    SLACK_ERROR_CHANNEL: "C01RP6ALD8R"
 
 functions:
   slack:
