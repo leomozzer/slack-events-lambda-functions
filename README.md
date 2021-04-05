@@ -32,6 +32,12 @@ After deploying, you'll receive a link from your brand new API Gateway. Copy the
 
 For the slash command, access the "Slash Commands" item and add a new command. In the "Request URL" add the URL from our app, but as endpoint add "/slash" (e.g. "https://zfajjr6h56.execute-api.REGION.amazonaws.com/dev/slack/slash"). After creating a new command you'll be able to use the "/" with the name of the command that you've created.
 
+## DevOps on AWS
+
+[Tutorial: Use full clone with a CodeCommit pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-codecommit-gitclone.html)
+On Github, you can create a communication between your account from git and AWS. Then on Step 2 item 6 you can select Github as a provider, add your repository, and the brach.
+On the buildspec file, add the code present on the buildspec.yml
+
 ## Resources
 
 [Slack Dialogs](https://api.slack.com/dialogs)
