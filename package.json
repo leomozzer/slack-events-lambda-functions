@@ -22,9 +22,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/test/app.js",
-    "predeploy": "del node_modules && npm install --platform=linux --arch=x64",
     "deploy": "serverless deploy -v",
-    "postdeploy": "del node_modules && npm install",
     "offline": "serverless offline start",
     "start": "serverless offline start"
   }
