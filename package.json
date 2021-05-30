@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "keywords": [],
-  "author": "",
+  "author": "Leonardo Souza",
   "license": "ISC",
   "dependencies": {
     "@slack/web-api": "^6.0.0",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/test/app.js",
+    "dev": "nodemon src/tests/app.js",
     "predeploy": "del node_modules && npm install --platform=linux --arch=x64",
     "deploy": "serverless deploy -v",
     "postdeploy": "del node_modules && npm install",
