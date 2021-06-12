@@ -1,11 +1,17 @@
 const express = require('express');
 const routes = express.Router()
 
-const { SlackEvent, SlackSlashCommands, NewMessage, ShortCuts } = require('./Controllers/SlackController')
+const { SlashEvents } = require('./Controllers/slack/SlashController')
+const { ShortCuts } = require('./Controllers/slack/ShortCutController')
+const { SlackEvent } = require('./Controllers/slack/EventsController')
+const { NewMessage } = require('./Controllers/slack/SlackController')
 
-routes.post('/slack/new-message', NewMessage);
-routes.post('/slack/events', SlackEvent);
-routes.post('/slack/slash', SlackSlashCommands);
-routes.post('/slack/shortcut', ShortCuts)
+//Slack endpoints
+routes.post('/api/slack/postMessage', NewMessage)
+routes.post('/api/slack/events', SlackEvent)
+routes.post('/api/slack/slash', SlashEvents)
+routes.post('/api/slack/shortcut', ShortCuts)
+
+//CRUD database endpoints
 
 module.exports = routes

@@ -38,6 +38,10 @@ For the slash command, access the "Slash Commands" item and add a new command. I
 On Github, you can create a communication between your account from git and AWS. Then on Step 2 item 6 you can select Github as a provider, add your repository, and the brach.
 On the buildspec file, add the code present on the buildspec.yml
 
+## Documentation
+
+* [Slack](docs/Slack/Slack.md)
+
 ## Resources
 
 [Slack Dialogs](https://api.slack.com/dialogs)
