@@ -1,4 +1,4 @@
-service: slack-aws-endpoint
+service: sl-connector
 
 frameworkVersion: '2'
 
@@ -6,21 +6,32 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
-  region: us-east-2
+  region: us-east-1
+  iam:
+    role:
+      statements: # permissions for all of your functions can be set here
+        - Effect: Allow
+          Action: # Gives permission to DynamoDB tables in a specific region
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+            - s3:*
   environment: 
     #AWS
-    STANDART_QUEUE_URL: ""
-    APP_REGION: us-east-2
+    APP_REGION: us-east-1
+    AWS_USER_TABLE: slack-interactions
     #Slack
-    SLACK_BOT_TOKEN: ""
-    SLACK_ERROR_CHANNEL: ""
 
 functions:
   slack:
     handler: src/index.handler
     events:
       - http:
-          path: slack/{any+}
+          path: /{any+}
           method: ANY
   slack_airtable_sqs:
     handler: src/LambdaHandlers/sqsSlackHandler.slack_airtable_sqs
