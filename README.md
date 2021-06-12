@@ -40,7 +40,7 @@ On the buildspec file, add the code present on the buildspec.yml
 
 ## Documentation
 
-* [Slack](docs/Slack/Slack.md)
+* [Slack](docs/Slack.md)
 
 ## Resources
 
