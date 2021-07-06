@@ -1,5 +1,4 @@
-const express = require('express');
-const routes = express.Router()
+const express = require('express').Router();
 
 const { SlashEvents } = require('./Controllers/slack/SlashController')
 const { ShortCuts } = require('./Controllers/slack/ShortCutController')
