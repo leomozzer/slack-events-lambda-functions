@@ -1,5 +1,8 @@
 # Slack interactions documentation
 
+## Architecture
+![](../images/slack_architecture.png)
+
 ## Events
 Docs:
 * [API Event Types](https://api.slack.com/events)

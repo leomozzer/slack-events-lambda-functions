@@ -31,10 +31,16 @@ functions:
     handler: src/index.handler
     events:
       - http:
-          path: /{any+}
+          path: /slack/{any+}
           method: ANY
-  slack_airtable_sqs:
-    handler: src/LambdaHandlers/sqsSlackHandler.slack_airtable_sqs
+  user:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /user/{any+}
+          method: ANY
+  # slack_airtable_sqs:
+  #   handler: src/LambdaHandlers/sqsSlackHandler.slack_airtable_sqs
 
 plugins: 
   - serverless-offline

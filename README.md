@@ -1,10 +1,6 @@
-# Slack Events with Lambda Functions
+# Serverless NodeJS connector
 
-![](images/architecture.png "Architecture")
-
-In certain cases, we need an assistant to help us in our daily work like adding items in an Airtable or making queries in a data table.
-
-This project consists of doing the connection between a Slack app with an AWS Lambda Function.
+This project consists in create a serverless application using nodejs to work as a fast connector.
 
 ## Requirements
 * NodeJS
