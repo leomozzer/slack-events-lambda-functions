@@ -23,7 +23,6 @@
   "scripts": {
     "test": "jest --setupFiles dotenv/config",
     "dev": "nodemon src/tests/app.js",
-    "predeploy": "del node_modules && npm install --platform=linux --arch=x64",
     "deploy": "serverless deploy -v",
     "offline": "serverless offline start",
     "start": "serverless offline start"
