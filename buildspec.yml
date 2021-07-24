@@ -6,12 +6,12 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
-  config:
+  install:
     commands:
       - ls -lt
       - npm install -g serverless
       - npm install -D
-  test:
+  pre_build:
     commands:
       - npm run test
   build:
