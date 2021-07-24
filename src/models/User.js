@@ -18,9 +18,9 @@ const table_params = {
 }
 
 module.exports = {
-    async CreateNewUser() {
+    async CreateNewUser(token, slack_bot_token) {
         try {
-            table_params["Item"] = new NewSlackBot("Test1", "Simple1");
+            table_params["Item"] = new NewSlackBot(token, slack_bot_token);
             const put_item = await PutItem(table_params);
             console.log(table_params)
             return put_item['$response']
