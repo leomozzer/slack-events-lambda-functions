@@ -10,6 +10,7 @@ phases:
     commands:
       - ls -lt
       - npm install -g serverless
+      - npm install -D
   build:
     commands:
       - npm run deploy
